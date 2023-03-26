@@ -59,3 +59,20 @@ body {
 .equal {
     width: 144px;
 }
+
+.button:hover {
+    transition: background-color .75s ease-out;
+    background-color: rgb(130, 162, 248);
+    transform: scale(0.92);
+
+}
+
+.equal:hover {
+    transition: background-color .75s ease-out;
+    background-color: rgb(125, 248, 125);
+}
+
+.del:hover {
+    background-color: rgb(249, 104, 104);
+    transition: background-color .75s ease-out;
+}
