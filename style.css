@@ -1,5 +1,5 @@
 body {
-    background-color: slategrey;
+    background-color: rgb(80, 69, 247);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -7,18 +7,55 @@ body {
 }
 
 .container {
-    width: 360px;
-    height: 480px;
-    border: 5px solid darkblue;
-    background-color: lightskyblue;
+    width: 345px;
+    height: 500px;
+    box-shadow: 1px 1px 10px 2px black;
+    background-color: rgb(0, 55, 255);
     border-radius: 10px;
 }
 
 .display {
     display: flex;
-    margin: 24px;
+    margin: 20px;
     height: 100px;
-    border: 2px solid blueviolet;
-    background-color: lightpink;
+    background-color: rgba(64, 64, 64, 0.841);
+    box-shadow: 1px 1px 5px black;
     border-radius: 10px;
+}
+
+.buttonContainer {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    height: 270px;
+    margin-left: 20px;
+    margin-right: 15px;
+    row-gap: 6px;
+    column-gap: 6px;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px;
+    width: 65px;
+    border: 2px solid darkblue;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 1px 1px 3px darkblue;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.bottom {
+    display: grid;
+    height: 64px;
+    grid-template-columns: auto auto auto;
+    margin-left: 20px;
+    margin-right: 15px;
+    margin-top: 7px;
+    column-gap: 8px;
+}
+
+.equal {
+    width: 144px;
 }
