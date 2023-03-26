@@ -23,7 +23,13 @@ function multiply(a, b) {
     return a * b 
 }
 
-//operations
-// function operate(num1, operator, num2) {
-    
-// }
+// operations
+function operate(num1, operator, num2) {
+    return num1 + operator + num2
+}
+
+// display value 
+const displayCurrentOperand = document.querySelector('.currentOperand');
+let initialValue = document.createElement('p');
+initialValue.textContent = '0';
+displayCurrentOperand.append(initialValue);
