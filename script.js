@@ -39,9 +39,9 @@ const btn = document.querySelectorAll('.button');
 const ac = document.querySelector('#reset');
 const del = document.querySelector('#del');
 
-del.addEventListener('click', () => {
-    initialValue.pop()
-})
+// del.addEventListener('click', () => {
+//     initialValue.pop()
+// })
 
 
 ac.addEventListener('click', () => {
@@ -51,21 +51,34 @@ ac.addEventListener('click', () => {
 
 
 btn.forEach (button => {
-    if (button.dataset.type === 'number') {
+    if (button.dataset.type === 'operator') {
+        operate()
+        return
+    }
+    else if (button.dataset.type === 'number') {
         let number = button;
         number.addEventListener('click', (e) => {
             let click = e.target;
             let numberClicked = click.value;
+            firstOperand = numberClicked;
             initialValue.append(numberClicked)
-        } )
-        console.log(button)
-    }
-    else if (button.dataset.type === 'operator') {
-        let operator = button;
-        operator.addEventListener('click', (e) => {
-            let click = e.target;
-            let operatorClicked = click.value
-            initialValue.append(operatorClicked)
+            console.log(firstOperand, 'firstOperand')
         })
     }
 })
+
+function operate() {
+    btn.forEach (operatorButton => {
+        if (operatorButton.dataset.type === 'operator') {
+            let operator = operatorButton;
+            operator.addEventListener('click', (e) => {
+                let click = e.target;
+                let operatorClicked = click.value
+                initialValue.append(operatorClicked)
+                // if (operatorClicked === '+') {
+                //     add()
+                // }
+            })
+        }
+    })
+}
