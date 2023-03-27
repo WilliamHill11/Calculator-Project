@@ -3,15 +3,10 @@ let firstOperand = null;
 let secondOperand = null;
 let currentOperator = null;
 
-function operations (operator) {
-    if (operator === '+') {
-        add(firstOperand, secondOperand)
-
-    }
-}
 // add
 function add(a, b) {
     return a + b
+    
 }
 
 // subtract
@@ -31,10 +26,19 @@ function multiply(a, b) {
 
 // operate
 function operate(num1, operator, num2) {
-    num1 + operator + num2
-    if (operator) {
-        return operations(operator)
-    }
+    if (operator === '+') {
+        let addition = add(num1, num2)
+        return currentOperand.textContent = addition;
+    } else if (operator === '-') {
+        let subtraction = subtract(num1, num2)
+        return currentOperand.textContent = subtraction;
+    } else if (operator === '÷') {
+        let division = divide(num1, num2)
+        return currentOperand.textContent = division;
+    } else if (operator === 'x') {
+        let multiplication = multiply(num1, num2)
+        return currentOperand.textContent = multiplication;
+    } 
 }
 
 // display value 
@@ -50,20 +54,14 @@ const ac = document.querySelector('#reset');
 const del = document.querySelector('#del');
 const equals = document.querySelector('#equals');
 
-equals.addEventListener('click', () => {
-    console.log('hi')
-})
 
 // del.addEventListener('click', () => {
 //     initialValue.pop()
 // })
 
-
 ac.addEventListener('click', () => {
     location.reload()
 })
-
-
 
 btn.forEach (button => {
     if (button.dataset.type === 'number') {
@@ -72,9 +70,16 @@ btn.forEach (button => {
             let click = e.target;
             let numberClicked = parseInt(click.value);
             currentOperand.append(numberClicked)
-            firstOperand = currentOperand.innerHTML;
-            console.log(parseInt(firstOperand + 5));
-            console.log(firstOperand, 'firstOperand')
+            // firstOperand =  parseInt(currentOperand.innerHTML);
+            if (firstOperand !== perviousOperand)  {
+                firstOperand =  parseInt(currentOperand.innerHTML);
+            } else {
+                secondOperand = parseInt(currentOperand.innerHTML);
+            }
+
+
+            // console.log(parseInt(firstOperand + 5));
+            // console.log(firstOperand, 'firstOperand')
         })
     }
 })
@@ -87,13 +92,25 @@ btn.forEach (operatorButton => {
             let click = e.target;
             let operatorClicked = click.value
             perviousOperand.append(firstOperand+operatorClicked)
-            return operate(firstOperand, operatorClicked, num2=null)
-            // if (operatorClicked === '+') {
-            //     add()
-            // }
+            perviousOperand = firstOperand
+            currentOperand.textContent = secondOperand;
+            secondOperand = currentOperand.innerHTML;
+            console.log(secondOperand, 'hi')
+            equals.addEventListener('click', () => {
+                if (secondOperand === null) {
+                    return
+                } else {
+                    console.log(firstOperand, 'first')
+                    console.log(secondOperand, 'second')
+                    console.log(operatorClicked, 'operator')
+                    return operate(firstOperand, operatorClicked, secondOperand)
+                }
+            })    
         })
     }
 })
+
+
 
 //numbers entered should be stored in first operand
 //then when operator is clicked it should take the first value and the next
