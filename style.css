@@ -25,9 +25,17 @@ body {
 
 .currentOperand {
     position: absolute;
+    bottom: 0;
     right: 0;
     padding: 8px;
     font-size: 36px;
+}
+
+.perviousOperand {
+    position: absolute;
+    right: 0;
+    padding: 10px;
+    font-size: 24px;
 }
 
 .buttonContainer {
