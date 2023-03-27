@@ -15,27 +15,27 @@
             <div class="currentOperand"></div>
         </div>
         <div class="buttonContainer">
-            <button class="button del clear">AC</button>
-            <button class="button del backspace">DEL</button>
-            <button class="button percent">%</button>
-            <button class="button add">+</button>
-            <button class="button one">1</button>
-            <button class="button two">2</button>
-            <button class="button three">3</button>
-            <button class="button multiply">x</button>
-            <button class="button four">4</button>
-            <button class="button five">5</button>
-            <button class="button six">6</button>
-            <button class="button divide">/</button>
-            <button class="button seven">7</button>
-            <button class="button eight">8</button>
-            <button class="button nine">9</button>
-            <button class="button minus">-</button>
+            <button class="button del" id="reset" onclick="AC()" data-type="reset">AC</button>
+            <button class="button del backspace" id="del" data-type="delete">DEL</button>
+            <button class="button" id="percent" data-type="operator" value="%">%</button>
+            <button class="button" id="plus" data-type="operator" value="+">+</button>
+            <button class="button" id="number-1" data-type="number" value="1">1</button>
+            <button class="button" id="number-2" data-type="number" value="1">2</button>
+            <button class="button" id="number-3" data-type="number" value="1">3</button>
+            <button class="button" id="multiply" data-type="operator" value="x">x</button>
+            <button class="button" id="number-4" data-type="number" value="4">4</button>
+            <button class="button" id="number-5" data-type="number" value="5">5</button>
+            <button class="button" id="number-6" data-type="number" value="6">6</button>
+            <button class="button" id="divide" data-type="operator" value="/">÷</button>
+            <button class="button" id="number-7" data-type="number" value="7">7</button>
+            <button class="button" id="number-8" data-type="number" value="8">8</button>
+            <button class="button" id="number-9" data-type="number" value="9">9</button>
+            <button class="button" id="minus" data-type="operator" value="-">-</button>
         </div>
         <div class="bottom">
-            <button class="button zero">0</button>
-            <button class="button decimal">.</button>
-            <button class="button equal">=</button>
+            <button class="button" id="number-0" data-type="number" value="0">0</button>
+            <button class="button" id="decimal" data-type="decimal" value=".">.</button>
+            <button class="button" id="equals" data-type=""="equal" value="=">=</button>
         </div>
     </div>
 
