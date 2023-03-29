@@ -1,12 +1,11 @@
 // Variables
-let firstOperand = null;
+let firstOperand = '';
 let secondOperand = null;
 let currentOperator = null;
 
 // add
 function add(a, b) {
     return a + b
-    
 }
 
 // subtract
@@ -24,11 +23,15 @@ function multiply(a, b) {
     return a * b 
 }
 
+let display = document.querySelector('.display');
+
+
 // operate
 function operate(num1, operator, num2) {
     if (operator === '+') {
         let addition = add(num1, num2)
-        return currentOperand.textContent = addition;
+        currentOperand.textContent = addition;
+        return 
     } else if (operator === '-') {
         let subtraction = subtract(num1, num2)
         return currentOperand.textContent = subtraction;
@@ -41,8 +44,7 @@ function operate(num1, operator, num2) {
     } 
 }
 
-// display value 
-// const displayCurrentOperand = document.querySelector('.display');
+
 let currentOperand = document.querySelector('.currentOperand');
 currentOperand.textContent = '';
 
@@ -91,23 +93,21 @@ btn.forEach (operatorButton => {
         operator.addEventListener('click', (e) => {
             let click = e.target;
             let operatorClicked = click.value
-            perviousOperand.append(firstOperand+operatorClicked)
+            perviousOperand.append(firstOperand + operatorClicked)
             perviousOperand = firstOperand
             currentOperand.textContent = secondOperand;
             secondOperand = currentOperand.innerHTML;
             console.log(secondOperand, 'hi')
             equals.addEventListener('click', () => {
-                if (secondOperand === null) {
-                    return
-                } else {
                     console.log(firstOperand, 'first')
                     console.log(secondOperand, 'second')
                     console.log(operatorClicked, 'operator')
-                    return operate(firstOperand, operatorClicked, secondOperand)
-                }
-            })    
+                    console.log(perviousOperand, 'pervious')
+                    operate(firstOperand, operatorClicked, secondOperand)
+            })
         })
     }
+    
 })
 
 
