@@ -1,7 +1,17 @@
 // Variables
 let firstOperand = '';
 let secondOperand = null;
-let currentOperator = null;
+let currentOperator = null; 
+let currentOperand = document.querySelector('.currentOperand');
+let display = document.querySelector('.display');
+let perviousOperand = document.querySelector('.perviousOperand');
+const numberButtons = document.querySelectorAll('[data-number]');
+const operatorButtons = document.querySelectorAll('[data-operator]');
+currentOperand.textContent = '';
+const btn = document.querySelectorAll('.button');
+const ac = document.querySelector('#reset');
+const del = document.querySelector('#del');
+const equals = document.querySelector('#equals');
 
 // add
 function add(a, b) {
@@ -23,7 +33,9 @@ function multiply(a, b) {
     return a * b 
 }
 
-let display = document.querySelector('.display');
+numberButtons.forEach((button) => {
+    button.addEventListener('click', addNumberToScreen)
+})
 
 
 // operate
@@ -43,18 +55,6 @@ function operate(num1, operator, num2) {
         return currentOperand.textContent = multiplication;
     } 
 }
-
-
-let currentOperand = document.querySelector('.currentOperand');
-currentOperand.textContent = '';
-
-let perviousOperand = document.querySelector('.perviousOperand');
-
-
-const btn = document.querySelectorAll('.button');
-const ac = document.querySelector('#reset');
-const del = document.querySelector('#del');
-const equals = document.querySelector('#equals');
 
 
 // del.addEventListener('click', () => {
