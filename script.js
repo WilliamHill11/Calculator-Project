@@ -1,4 +1,3 @@
-// Variables
 let firstOperand = '';
 let secondOperand = '';
 let currentOperator = null; 
@@ -32,7 +31,6 @@ function addNumberToScreen(number) {
 }
 
 function setOperator(operator) {
-    console.log(currentOperator, 'current')
     if (currentOperator !== null) evaluate()
     firstOperand = currentOperandScreen.textContent
     currentOperator = operator
@@ -44,7 +42,7 @@ function evaluate() {
     secondOperand = currentOperandScreen.textContent
     currentOperandScreen.textContent = operate(firstOperand, currentOperator, secondOperand)
     perviousOperandScreen.textContent = `${firstOperand} ${currentOperator} ${secondOperand} =`
-
+    currentOperator = null
 }
 
 function resetScreen() {
@@ -76,28 +74,25 @@ function operate(num1, operator, num2) {
         case 'x':
             return multiply(num1, num2)
         case '÷':
-            return divide(num1, num2)
+            if (num2 === 0) return null
+            else return divide(num1, num2)
         default: 
             return null;
     }
 }
 
-// add
 function add(a, b) {
     return a + b
 }
 
-// subtract
 function subtract(a, b) {
     return a - b
 }
 
-// divide 
 function divide(a, b) {
     return a / b
 }
 
-// multiply 
 function multiply(a, b) {
     return a * b 
 }
